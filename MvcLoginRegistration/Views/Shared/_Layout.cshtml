@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- START Javascript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/slide-menu.js"></script>
+    <!-- START CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300' rel='stylesheet' type='text/css'>
+    <link href='http://apex.podvodnadela.si/css/style.css' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+    <!-- Mobile Header START -->
+    <div class="mobile-header">
+        <ul class="clearfloat">
+            @Html.ActionLink("Name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+      
+
+          @{  if (Session["UserId"] != null)
+              {
+
+                <li>@Html.ActionLink("logout", "logout", "Account")</li>
+
+
+              }
+              else
+              {
+                <li>@Html.ActionLink("login", "login", "Account")</li>
+                <li>@Html.ActionLink("register", "register", "Account")</li>
+
+
+
+              }
+
+        }
+
+
+        </ul>
+
+    </div>
+    <!-- Mobile Header END -->
+
+    <div id="container-outer">
+
+        <!-- Mobile Menu START -->
+
+        <div id="container">
+            <div id="container-inner">
+
+
+                <center>
+                    @RenderBody()
+
+                    <center>
+            </div>
+
+
+
+        </div>
+    </div>
+ 
+
+
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

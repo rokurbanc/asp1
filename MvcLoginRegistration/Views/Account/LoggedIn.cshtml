@@ -1,0 +1,33 @@
+﻿
+@{
+
+
+    ViewBag.Title = "LoggedIn";
+}
+
+@{
+
+
+    if(Session["UserId"] != null)
+    {
+         
+        <h4>Hello @Session["Username"].ToString() id  @Session["UserId"].ToString()</h4>
+
+
+    }
+    if (Session["Username"].ToString() == "rok")
+    {
+
+        <h2>ADMIN</h2>
+
+        <p>
+            @Html.ActionLink("All users", "INDEX")
+        </p>
+        
+
+
+    }
+
+}
+
+
